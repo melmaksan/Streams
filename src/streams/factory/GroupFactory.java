@@ -36,7 +36,7 @@ public class GroupFactory {
         return users;
     }
 
-    public static Group createGroup(int index) {
+    private static Group createGroup(int index) {
         String[] groupNames = {"Alpha", "Beta", "Gamma", "Delta", "Zeta", "Eta"};
         return new Group(groupNames[index]);
     }

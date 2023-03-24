@@ -48,6 +48,6 @@ public class Group {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", users=" + users +
-                '}' + "\n";
+                '}';
     }
 }
