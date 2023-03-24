@@ -16,11 +16,11 @@ public class GroupFactory {
         for (int i = 0; i < groupNums; i++) {
             Group group = createGroup(count);
             User[] users = createUsersArray(userNums);
+            groups.add(i, group);
+            groups.get(i).setUsers(Arrays.asList(users));
             for (User user : users) {
                 user.setGroup(group);
             }
-            groups.add(i, group);
-            groups.get(i).setUsers(Arrays.asList(users));
             count++;
         }
         return groups;
