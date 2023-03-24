@@ -14,15 +14,15 @@ public class GroupFactory {
         List<Group> groups = new ArrayList<>(groupNums);
         int count = 0;
         for (int i = 0; i < groupNums; i++) {
-            groups.add(i, createGroup(count));
+            Group group = createGroup(count);
+            User[] users = createUsersArray(userNums);
+            for (User user : users) {
+                user.setGroup(group);
+            }
+            groups.add(i, group);
+            groups.get(i).setUsers(Arrays.asList(users));
             count++;
         }
-        User[] users = createUsersArray(userNums);
-        for (User user : users) {
-
-        }
-
-
         return groups;
     }
 

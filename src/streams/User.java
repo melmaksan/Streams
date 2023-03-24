@@ -7,12 +7,11 @@ public class User {
     private static final String ID = "U";
     private final String name;
     private final int age;
-    private final Group group;
+    private Group group;
 
-    public User(String name, int age, Group group) {
+    public User(String name, int age) {
         this.name = name;
         this.age = age;
-        this.group = group;
     }
 
     public String getName() {
@@ -25,6 +24,10 @@ public class User {
 
     public Group getGroup() {
         return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
     @Override

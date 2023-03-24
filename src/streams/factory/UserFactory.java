@@ -2,15 +2,13 @@ package streams.factory;
 
 import streams.User;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class UserFactory {
 
     public static User createUser() {
-        return new User(randomName(), randomAge(), );
+        return new User(randomName(), randomAge());
     }
 
     private static int randomAge() {
