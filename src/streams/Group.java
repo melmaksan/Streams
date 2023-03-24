@@ -1,27 +1,31 @@
 package streams;
 
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Group {
 
-    private static final String ID = "G";
+    private static long id;
     private final String name;
-    private List<User> users;
+    private Set<User> users;
 
     public Group(String name) {
         this.name = name;
+    }
+
+    public static void setId(long id) {
+        Group.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public List<User> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 
@@ -35,14 +39,15 @@ public class Group {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, users);
+        return Objects.hash(id, name, users);
     }
 
     @Override
     public String toString() {
         return "Group{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", users=" + users +
-                '}';
+                '}' + "\n";
     }
 }

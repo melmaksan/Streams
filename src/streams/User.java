@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class User {
 
-    private static final String ID = "U";
+    private static long id;
     private final String name;
     private final int age;
     private Group group;
@@ -12,6 +12,10 @@ public class User {
     public User(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public static void setId(long id) {
+        User.id = id;
     }
 
     public String getName() {
@@ -35,20 +39,20 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return age == user.age && Objects.equals(name, user.name) && Objects.equals(group, user.group);
+        return age == user.age && Objects.equals(name, user.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, group);
+        return Objects.hash(id, name, age);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", age=" + age +
-                ", group=" + group +
                 '}';
     }
 }

@@ -3,43 +3,42 @@ package streams.factory;
 import streams.Group;
 import streams.User;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class GroupFactory {
 
     public static List<Group> createGroupsWithUsers(int groupNums, int userNums) {
         List<Group> groups = new ArrayList<>(groupNums);
-        int count = 0;
         for (int i = 0; i < groupNums; i++) {
-            Group group = createGroup(count);
+            Group group = addGroup(groups, i);
             User[] users = createUsersArray(userNums);
-            groups.add(i, group);
-            groups.get(i).setUsers(Arrays.asList(users));
             for (User user : users) {
                 user.setGroup(group);
             }
-            count++;
+            groups.get(i).setUsers(new HashSet<>(Arrays.asList(users)));
         }
         return groups;
+    }
+
+    private static Group addGroup(List<Group> groups, int i) {
+        Group group = createGroup(i);
+        Group.setId(i);
+        groups.add(i, group);
+        return group;
     }
 
     public static User[] createUsersArray(int userNums) {
         User[] users = new User[userNums];
         for (int i = 0; i < userNums; i++) {
             users[i] = UserFactory.createUser();
+            User.setId(i);
         }
         return users;
     }
 
-    private static String randomName(int index) {
+    public static Group createGroup(int index) {
         String[] groupNames = {"Alpha", "Beta", "Gamma", "Delta", "Zeta", "Eta"};
-        return groupNames[index];
+        return new Group(groupNames[index]);
     }
 
-    public static Group createGroup(int index) {
-        return new Group(randomName(index));
-    }
 }
