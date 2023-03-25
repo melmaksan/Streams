@@ -2,6 +2,7 @@ package streams.operations;
 
 import streams.Group;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -23,32 +24,32 @@ public class TerminalOperations {
                 .ifPresent(System.out::println);
     }
 
-    public static long count(List<Group> collection) {
+    public static void count(List<Group> collection) {
         System.out.println("\ncount method: ");
-        return collection.stream()
+        System.out.println(collection.stream()
                 .filter(n -> n.getName().contains("e"))
-                .count();
+                .count());
     }
 
-    public static boolean anyMatch(List<Group> collection) {
+    public static void anyMatch(List<Group> collection) {
         System.out.println("\nanyMatch method: ");
-        return collection.stream()
+        System.out.println(collection.stream()
                 .filter(n -> n.getName().contains("e"))
-                .anyMatch(n -> n.getName().equals("Beta"));
+                .anyMatch(n -> n.getName().equals("Beta")));
     }
 
-    public static boolean noneMatch(List<Group> collection) {
+    public static void noneMatch(List<Group> collection) {
         System.out.println("\nnoneMatch method: ");
-        return collection.stream()
+        System.out.println(collection.stream()
                 .filter(n -> n.getName().contains("e"))
-                .noneMatch(n -> n.getName().equals("Alpha"));
+                .noneMatch(n -> n.getName().equals("Alpha")));
     }
 
-    public static boolean allMatch(List<Group> collection) {
+    public static void allMatch(List<Group> collection) {
         System.out.println("\nallMatch method: ");
-        return collection.stream()
+        System.out.println(collection.stream()
                 .filter(n -> n.getName().contains("e"))
-                .allMatch(n -> n.getName().contains("a"));
+                .allMatch(n -> n.getName().contains("a")));
     }
 
     public static void min(List<Group> collection) {
@@ -77,11 +78,12 @@ public class TerminalOperations {
         collection.stream().forEachOrdered(System.out::println);
     }
 
-    public static String[] toArray(List<Group> collection) {
+    public static void toArray(List<Group> collection) {
         System.out.println("\ntoArray method: ");
-        return collection.stream()
+        System.out.println(Arrays.toString
+                (collection.stream()
                 .map(Group::getName)
                 .map(String::toUpperCase)
-                .toArray(String[]::new);
+                .toArray(String[]::new)));
     }
 }

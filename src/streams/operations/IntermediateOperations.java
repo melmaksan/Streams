@@ -40,14 +40,15 @@ public class IntermediateOperations {
                 .forEach(System.out::println);
     }
 
-    public static List<String> peek(List<Group> collection) {
+    public static void peek(List<Group> collection) {
         System.out.println("\npeek method: ");
-        return collection.stream()
+        collection.stream()
                 .filter(n -> n.getName().length() > 4)
                 .peek(System.out::println)
                 .map(x -> x.getName() + "_123")
                 .peek(System.out::println)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
     }
 
     public static void limit(List<Group> collection) {
@@ -65,12 +66,12 @@ public class IntermediateOperations {
                 .forEach(System.out::println);
     }
 
-    public static double mapToInt(User[] array) {
+    public static void mapToInt(User[] array) {
         System.out.println("\nmapToInt method: ");
-        return Arrays.stream(array)
+        System.out.println("average: " + Arrays.stream(array)
                 .mapToInt(User::getAge)
                 .average()
-                .orElse(0);
+                .orElse(0));
     }
 
     public static void flatMap(List<Group> collection) {
@@ -81,12 +82,12 @@ public class IntermediateOperations {
                 .forEach(System.out::println);
     }
 
-    public static long flatMapToInt(List<List<Integer>> collection) {
+    public static void flatMapToInt(List<List<Integer>> collection) {
         System.out.println("\nflatMapToInt method: ");
-        return collection.stream()
+        System.out.println("sum: " + collection.stream()
                 .flatMapToInt(list ->
                         list.stream().mapToInt(num -> num))
                 .peek(System.out::println)
-                .summaryStatistics().getSum();
+                .summaryStatistics().getSum());
     }
 }
