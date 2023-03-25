@@ -13,6 +13,10 @@ public class Group {
         this.name = name;
     }
 
+    public static long getId() {
+        return id;
+    }
+
     public static void setId(long id) {
         Group.id = id;
     }
