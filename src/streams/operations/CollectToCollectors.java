@@ -35,7 +35,6 @@ public class CollectToCollectors {
     public static void toMap(List<Group> collection) {
         System.out.println("\ntoMap method: ");
         System.out.println("map: " + collection.stream()
-                .filter(n -> n.getName().length() > 4)
                 .collect(Collectors.toMap(Group::getName,
                         Group::getUsers)));
     }
@@ -43,7 +42,6 @@ public class CollectToCollectors {
     public static void toConcurrentMap(List<Group> collection) {
         System.out.println("\ntoConcurrentMap method: ");
         System.out.println("concurrent map: " + collection.stream()
-                .filter(n -> n.getName().length() > 4)
                 .collect(Collectors.toConcurrentMap
                         (k -> k.getName().charAt(0),
                                 v -> v.getName().toUpperCase())));
@@ -80,7 +78,7 @@ public class CollectToCollectors {
 
     public static void groupingBy(List<Group> collection) {
         System.out.println("\ngroupingBy method: ");
-        System.out.println("grouping by name: " +
+        System.out.println("grouping by user name: " +
                 collection.stream()
                         .map(Group::getUsers)
                         .flatMap(Collection::stream)
@@ -94,9 +92,8 @@ public class CollectToCollectors {
                 collection.stream()
                         .map(Group::getUsers)
                         .flatMap(Collection::stream)
-                        .collect(Collectors.groupingBy(User::getName,
-                                Collectors.mapping(User::getGroup,
-                                        Collectors.toSet()))));
+                        .collect(Collectors.mapping(User::getGroup,
+                                        Collectors.toSet())));
     }
 
     public static void partitioningBy(List<Group> collection) {

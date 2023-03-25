@@ -61,8 +61,18 @@ public class Main {
 //        TerminalOperations.max(GroupFactory.createGroupsWithUsers(5, 5));
 //        TerminalOperations.min(GroupFactory.createGroupsWithUsers(5, 5));
 
-    }
-
         //CollectToCollectors methods
 
+//        CollectToCollectors.toList(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.toSet(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.toMap(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.toConcurrentMap(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.toCollection(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.averagingDouble(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.summingInt(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.summarizingInt(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.groupingBy(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.mapping(GroupFactory.createGroupsWithUsers(5, 5));
+//        CollectToCollectors.partitioningBy(GroupFactory.createGroupsWithUsers(5, 5));
+    }
 }
